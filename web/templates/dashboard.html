@@ -1,0 +1,68 @@
+<!DOCTYPE html>  
+<html lang="pt">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dashboard</title>  
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- External JavaScript -->
+    <script src="/static/js/script.js"></script>
+</head>  
+<body>  
+    <div class="container">
+        <h1>Dashboard</h1>  
+        
+        <!-- Account Information -->
+        <div class="card">
+            <h2>Account Information</h2>
+            <p>Saldo: <span id="balance">--</span> USD</p>  
+        </div>
+        
+        <!-- Market Selection -->
+        <div class="card">
+            <h2>Market Tick Stream</h2>
+            <div id="statusAlert" class="alert" style="display: none;"></div>
+            
+            <div class="form-group">
+                <label for="marketSelect">Select Market:</label>
+                <select id="marketSelect">
+                    <option value="">Loading markets...</option>
+                </select>
+                <p id="marketLoadingMsg"><em>Loading available markets...</em></p>
+            </div>
+            
+            <div class="form-group">
+                <button id="subscribeBtn" onclick="subscribeTicks()" disabled>Subscribe to Ticks</button>
+                <button id="unsubscribeBtn" onclick="unsubscribeTicks()" class="stop">Unsubscribe</button>
+            </div>
+            
+            <div id="subscriptionStatus">
+                <p>Currently streaming: <strong id="currentSymbol"></strong></p>
+                <div id="streamStatus">
+                    <span id="statusIndicator" class="status-indicator"></span>
+                    Stream status: <span id="statusText" class="badge"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ticks Table -->
+        <div class="card">
+            <h2>Latest Ticks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Price</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                    </tr>
+                </thead>
+                <tbody id="ticksTableBody">
+                    <!-- Tick data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>  
+</html>
