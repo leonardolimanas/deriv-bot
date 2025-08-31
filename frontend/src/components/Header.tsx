@@ -1,22 +1,24 @@
 import React from 'react';
-import { Navbar, Nav, Container, Badge, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Badge, Button, Dropdown } from 'react-bootstrap';
 import { 
   TrendingUp, 
-  BarChart3, 
   Settings, 
   Bell, 
   User, 
   Activity,
   Wifi,
-  WifiOff
+  WifiOff,
+  Target,
+  Plus,
+  Database
 } from 'lucide-react';
 
 interface HeaderProps {
   isStreaming: boolean;
   balance: number | null;
   ticksCount: number;
-  currentPage: 'dashboard' | 'settings';
-  onPageChange: (page: 'dashboard' | 'settings') => void;
+  currentPage: 'dashboard' | 'settings' | 'trading' | 'strategies';
+  onPageChange: (page: 'dashboard' | 'settings' | 'trading' | 'strategies') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ isStreaming, balance, ticksCount, currentPage, onPageChange }) => {
@@ -56,6 +58,31 @@ export const Header: React.FC<HeaderProps> = ({ isStreaming, balance, ticksCount
               <Settings className="me-2" size={16} />
               Configurações
             </Nav.Link>
+            <Nav.Link 
+              href="#" 
+              className={`d-flex align-items-center ${currentPage === 'trading' ? 'active' : ''}`}
+              onClick={() => onPageChange('trading')}
+            >
+              <Target className="me-2" size={16} />
+              Trading
+            </Nav.Link>
+            
+            {/* Cadastros Dropdown */}
+            <Dropdown as={Nav.Item}>
+              <Dropdown.Toggle as={Nav.Link} className="d-flex align-items-center">
+                <Database className="me-2" size={16} />
+                Cadastros
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-dark border-secondary">
+                <Dropdown.Item 
+                  className={`text-white ${currentPage === 'strategies' ? 'bg-primary' : ''}`}
+                  onClick={() => onPageChange('strategies')}
+                >
+                  <Plus className="me-2" size={16} />
+                  Estratégias
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
 
           {/* Status Indicators */}

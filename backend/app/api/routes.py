@@ -2,6 +2,7 @@ from flask import jsonify, request, current_app
 from flask_limiter.util import get_remote_address
 from . import api_bp
 from ..services.deriv_service import DerivService
+from ..services.trading_service import TradingService
 from ..utils.validators import validate_symbol
 from ..utils.decorators import handle_errors
 import asyncio
@@ -163,6 +164,32 @@ def health_check():
         }
     })
 
+@api_bp.route('/test-trading')
+def test_trading():
+    """Test endpoint for trading."""
+    return jsonify({
+        "message": "Trading routes are working!",
+        "timestamp": time.time()
+    })
+
+@api_bp.route('/test-strategy-model')
+def test_strategy_model():
+    """Test endpoint for strategy model."""
+    try:
+        import sys
+        sys.path.append('.')
+        from app.models.strategy import StrategyModel
+        strategy_model = StrategyModel()
+        return jsonify({
+            "message": "Strategy model imported successfully!",
+            "timestamp": time.time()
+        })
+    except Exception as e:
+        return jsonify({
+            "error": f"Failed to import strategy model: {str(e)}",
+            "timestamp": time.time()
+        }), 500
+
 @api_bp.route('/debug/ticks')
 def debug_ticks():
     """Debug endpoint to get detailed tick information."""
@@ -207,6 +234,163 @@ def debug_ticks():
     except Exception as e:
         current_app.logger.error(f"Error in debug ticks: {e}")
         return jsonify({"error": "Failed to get debug ticks"}), 500
+
+# Trading routes - temporary direct implementation
+@api_bp.route('/trading/markets', methods=['GET'])
+def get_trading_markets():
+    """Retorna mercados disponíveis para trading"""
+    try:
+        # Lista de mercados disponíveis
+        markets = [
+            {
+                "id": "frxEURUSD",
+                "name": "EUR/USD",
+                "description": "Euro vs Dólar Americano",
+                "type": "forex"
+            },
+            {
+                "id": "frxGBPUSD", 
+                "name": "GBP/USD",
+                "description": "Libra Esterlina vs Dólar Americano",
+                "type": "forex"
+            },
+            {
+                "id": "R_10",
+                "name": "Volatility 10 Index",
+                "description": "Índice de Volatilidade 10",
+                "type": "synthetic"
+            },
+            {
+                "id": "R_25",
+                "name": "Volatility 25 Index", 
+                "description": "Índice de Volatilidade 25",
+                "type": "synthetic"
+            },
+            {
+                "id": "R_50",
+                "name": "Volatility 50 Index",
+                "description": "Índice de Volatilidade 50", 
+                "type": "synthetic"
+            },
+            {
+                "id": "R_75",
+                "name": "Volatility 75 Index",
+                "description": "Índice de Volatilidade 75",
+                "type": "synthetic"
+            },
+            {
+                "id": "R_100",
+                "name": "Volatility 100 Index",
+                "description": "Índice de Volatilidade 100",
+                "type": "synthetic"
+            }
+        ]
+        
+        return jsonify(markets), 200
+        
+    except Exception as e:
+        current_app.logger.error(f"Erro ao buscar mercados: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+# Strategy management routes
+@api_bp.route('/trading/strategies', methods=['GET'])
+def get_strategies():
+    """Retorna todas as estratégias cadastradas"""
+    try:
+        from ..models.strategy import StrategyModel
+        strategy_model = StrategyModel()
+        strategies = strategy_model.get_all_strategies()
+        return jsonify(strategies), 200
+    except Exception as e:
+        current_app.logger.error(f"Erro ao buscar estratégias: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+@api_bp.route('/trading/strategies/active', methods=['GET'])
+def get_active_strategies():
+    """Retorna todas as estratégias ativas do serviço de trading"""
+    try:
+        from ..services.trading_service import TradingService
+        trading_service = TradingService()
+        strategies = trading_service.get_all_strategies()
+        return jsonify(strategies), 200
+    except Exception as e:
+        current_app.logger.error(f"Erro ao buscar estratégias ativas: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+@api_bp.route('/trading/strategies', methods=['POST'])
+def create_strategy():
+    """Cria uma nova estratégia"""
+    try:
+        from ..models.strategy import StrategyModel
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "Dados inválidos"}), 400
+        
+        strategy_model = StrategyModel()
+        
+        # Remover strategy_id se fornecido (será gerado automaticamente)
+        if 'strategy_id' in data:
+            del data['strategy_id']
+        
+        strategy = strategy_model.create_strategy(data)
+        return jsonify(strategy), 201
+    except Exception as e:
+        current_app.logger.error(f"Erro ao criar estratégia: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+@api_bp.route('/trading/strategies/<strategy_id>', methods=['GET'])
+def get_strategy(strategy_id):
+    """Retorna uma estratégia específica"""
+    try:
+        from ..models.strategy import StrategyModel
+        strategy_model = StrategyModel()
+        strategy = strategy_model.get_strategy(strategy_id)
+        
+        if not strategy:
+            return jsonify({"error": "Estratégia não encontrada"}), 404
+        
+        return jsonify(strategy), 200
+    except Exception as e:
+        current_app.logger.error(f"Erro ao buscar estratégia: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+@api_bp.route('/trading/strategies/<strategy_id>', methods=['PUT'])
+def update_strategy(strategy_id):
+    """Atualiza uma estratégia"""
+    try:
+        from ..models.strategy import StrategyModel
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "Dados inválidos"}), 400
+        
+        strategy_model = StrategyModel()
+        strategy = strategy_model.update_strategy(strategy_id, data)
+        
+        if not strategy:
+            return jsonify({"error": "Estratégia não encontrada"}), 404
+        
+        return jsonify(strategy), 200
+    except Exception as e:
+        current_app.logger.error(f"Erro ao atualizar estratégia: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
+
+@api_bp.route('/trading/strategies/<strategy_id>', methods=['DELETE'])
+def delete_strategy(strategy_id):
+    """Exclui uma estratégia"""
+    try:
+        from ..models.strategy import StrategyModel
+        strategy_model = StrategyModel()
+        
+        success = strategy_model.delete_strategy(strategy_id)
+        if not success:
+            return jsonify({"error": "Estratégia não encontrada"}), 404
+        
+        return jsonify({"message": "Estratégia excluída com sucesso"}), 200
+    except Exception as e:
+        current_app.logger.error(f"Erro ao excluir estratégia: {str(e)}")
+        return jsonify({"error": "Erro interno do servidor"}), 500
 
 # Initialize services when blueprint is registered
 init_services()
