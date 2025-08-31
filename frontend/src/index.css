@@ -1,0 +1,846 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme base */
+html, body {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%) !important;
+  color: white !important;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Bootstrap overrides */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: white !important;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: white !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Card customizations */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.card-header {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+  font-weight: 600;
+}
+
+.card-body {
+  color: white !important;
+}
+
+.card-title {
+  color: white !important;
+}
+
+/* Button customizations */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(86, 171, 47, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+/* Form customizations */
+.form-control, .form-select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white !important;
+  border-radius: 10px;
+}
+
+.form-control:focus, .form-select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  color: white !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-label {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Form select optgroup styling */
+.form-select optgroup {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.form-select option {
+  background: #2d3748;
+  color: white;
+  padding: 4px 8px;
+}
+
+/* Table customizations - Enhanced for dark theme */
+.table {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table thead th {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 600;
+  padding: 12px 8px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: transparent !important;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none !important;
+}
+
+.table td {
+  color: white !important;
+  padding: 12px 8px;
+  background: transparent !important;
+  border: none !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd):hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Pagination customizations */
+.pagination {
+  margin-bottom: 0;
+}
+
+.page-link {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white !important;
+  border-radius: 6px;
+  margin: 0 2px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.page-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white !important;
+}
+
+.page-link:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.page-item.active .page-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  color: white !important;
+}
+
+.page-item.disabled .page-link {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Badge customizations */
+.badge {
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  font-weight: 500;
+}
+
+/* Footer customizations */
+.footer {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Stats cards */
+.stats-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.stats-card h6 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.stats-card h4 {
+  color: white !important;
+}
+
+/* Alert customizations */
+.alert {
+  border-radius: 15px;
+  border: none;
+  backdrop-filter: blur(10px);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.2) 0%, rgba(40, 167, 69, 0.1) 100%);
+  color: #a8e6cf !important;
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(220, 53, 69, 0.1) 100%);
+  color: #ffb3ba !important;
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%);
+  color: #ffeaa7 !important;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(23, 162, 184, 0.2) 0%, rgba(23, 162, 184, 0.1) 100%);
+  color: #a8e6cf !important;
+}
+
+.alert-light {
+  background: rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+/* Market category sections */
+.market-category-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.market-category-section .card-header {
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+}
+
+.market-category-section .card-body {
+  padding: 0.75rem;
+}
+
+/* Market category cards - Smaller size */
+.market-category-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.market-category-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.market-category-card .card-title {
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.market-category-card .card-body {
+  color: white !important;
+  padding: 0.75rem;
+}
+
+.market-category-card .card-header {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+/* Selected market card */
+.selected-market-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.selected-market-card .card-header {
+  background: rgba(102, 126, 234, 0.1);
+  color: white !important;
+}
+
+.selected-market-card .card-body {
+  color: white !important;
+}
+
+.selected-market-card h6 {
+  color: white !important;
+}
+
+/* Status card - Compact */
+.status-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.status-card .card-body {
+  color: white !important;
+  padding: 1rem;
+}
+
+.status-card h5 {
+  color: white !important;
+}
+
+.status-card p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Stream controls - Ultra Compact styling */
+.stream-controls-compact {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stream-controls-compact .btn {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  min-height: 28px;
+}
+
+.stream-controls-compact .badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.stream-controls-compact small {
+  font-size: 0.8rem;
+}
+
+/* Stream controls - Compact styling */
+.stream-controls {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.stream-controls .btn {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.stream-controls .alert {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.stream-controls .alert-light {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stream-controls .alert-info {
+  background: rgba(23, 162, 184, 0.1);
+  border: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+/* Text visibility improvements */
+.text-white {
+  color: white !important;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.text-success {
+  color: #a8e6cf !important;
+}
+
+.text-danger {
+  color: #ffb3ba !important;
+}
+
+.text-warning {
+  color: #ffeaa7 !important;
+}
+
+.text-info {
+  color: #a8e6cf !important;
+}
+
+.text-primary {
+  color: #667eea !important;
+}
+
+.text-secondary {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Cursor pointer for clickable elements */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Space utilities */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Additional text fixes */
+h1, h2, h3, h4, h5, h6 {
+  color: white !important;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+small {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Form select options */
+.form-select option {
+  background: #2d3748;
+  color: white;
+}
+
+/* Override Bootstrap default text colors */
+body {
+  color: white !important;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%) !important;
+}
+
+/* Ensure all text in cards is visible */
+.card * {
+  color: inherit;
+}
+
+/* Specific overrides for better visibility */
+.alert-heading {
+  color: white !important;
+}
+
+.alert-heading + p {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Main container background */
+#root {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%) !important;
+  min-height: 100vh;
+}
+
+/* Override any white backgrounds */
+.container, .container-fluid {
+  background: transparent !important;
+}
+
+/* Ensure dark theme is applied everywhere */
+* {
+  box-sizing: border-box;
+}
+
+/* Override Bootstrap's default white background */
+.bg-white {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-light {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Force dark theme on all elements */
+div, section, main, aside {
+  background: transparent !important;
+}
+
+/* Table container specific styling */
+.table-container {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Compact market categories */
+.market-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.market-category-card {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.market-category-card .card-body {
+  padding: 0.5rem;
+}
+
+.market-category-card .card-title {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.market-category-card small {
+  font-size: 0.65rem;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.market-category-card .badge {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .market-categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.25rem;
+  }
+  
+  .market-category-card {
+    min-height: 60px;
+  }
+  
+  .market-category-card .card-title {
+    font-size: 0.7rem;
+  }
+  
+  .market-category-card small {
+    font-size: 0.6rem;
+  }
+}
+
+/* Toast customizations */
+.toast-custom {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.toast-custom .toast-header {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.toast-custom .toast-header .btn-close {
+  filter: invert(1);
+}
+
+.toast-custom .toast-body {
+  color: white !important;
+}
+
+/* Accordion customizations */
+.market-accordion .accordion-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.market-accordion .accordion-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white !important;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.market-accordion .accordion-button:not(.collapsed) {
+  background: rgba(255, 255, 255, 0.12);
+  color: white !important;
+  box-shadow: none;
+}
+
+.market-accordion .accordion-button:focus {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.market-accordion .accordion-button::after {
+  filter: invert(1);
+  margin-left: 0;
+}
+
+.market-accordion .accordion-body {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+/* Market categories grid - Improved for all items */
+.market-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.market-category-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.market-category-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.market-category-card .card-title {
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.market-category-card .card-body {
+  color: white !important;
+  padding: 0.75rem 0.5rem;
+}
+
+.market-category-card small {
+  font-size: 0.7rem;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.market-category-card .badge {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 12px;
+}
+
+/* Responsive adjustments for market categories */
+@media (max-width: 768px) {
+  .market-categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .market-category-card {
+    min-height: 70px;
+  }
+  
+  .market-category-card .card-title {
+    font-size: 0.75rem;
+  }
+  
+  .market-category-card small {
+    font-size: 0.65rem;
+  }
+  
+  .market-category-card .badge {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .market-categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.25rem;
+  }
+  
+  .market-category-card {
+    min-height: 60px;
+  }
+  
+  .market-category-card .card-title {
+    font-size: 0.7rem;
+  }
+  
+  .market-category-card small {
+    font-size: 0.6rem;
+  }
+}
+
+/* Debug Panel Spinner */
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
