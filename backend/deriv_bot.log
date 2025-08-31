@@ -344,3 +344,97 @@
 2025-08-31 03:53:14,244 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 03:53:14] "GET /api/stats HTTP/1.1" 200 -
 2025-08-31 03:53:19,246 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 03:53:19] "GET /api/stats HTTP/1.1" 200 -
 2025-08-31 03:53:24,246 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 03:53:24] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:00:54,103 - utils.native_deriv_client - INFO - Frontend callback set
+2025-08-31 04:00:54,103 - utils.native_deriv_client - INFO - Main loop set for async operations
+2025-08-31 04:00:54,108 - utils.native_deriv_client - INFO - Telegram bot set for notifications
+2025-08-31 04:00:54,108 - utils.native_deriv_client - INFO - 🔌 Connecting to Deriv WebSocket: wss://ws.binaryws.com/websockets/v3?app_id=67203
+2025-08-31 04:00:54,669 - utils.native_deriv_client - INFO - ✅ WebSocket connected successfully
+2025-08-31 04:00:54,827 - utils.native_deriv_client - WARNING - No balance data in response
+2025-08-31 04:00:54,924 - utils.native_deriv_client - INFO - ✅ Authorization successful. Balance: 12687.38 USD
+2025-08-31 04:00:56,471 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.12:5001
+2025-08-31 04:00:56,471 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-31 04:00:57,058 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:00:57] "GET /api/health HTTP/1.1" 200 -
+2025-08-31 04:01:14,405 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:01:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:02:14,371 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:02:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:03:14,446 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:03:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:04:14,374 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:04:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:05:14,391 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:05:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:06:14,362 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:06:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:07:14,378 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:07:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:08:14,366 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:08:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:09:14,427 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:09:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:10:14,432 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:10:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:11:14,436 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:11:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:12:14,446 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:12:14] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:04,529 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:04,530 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:04] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:04,530 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:04,530 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:04,531 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:04] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:05,213 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:05,214 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:05,218 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:05,218 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:05,218 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:05,219 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:05,219 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:05,219 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:05,219 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:05,223 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:05,305 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:05,305 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:05,306 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:05,307 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:05,307 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:05,307 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:05,308 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:05] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:05,409 - utils.native_deriv_client - INFO - Received 88 active symbols
+2025-08-31 04:13:06,073 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:06,073 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:06,073 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:06,073 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:06,165 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:06,165 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:06,166 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:06,166 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:06,166 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:06,166 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:06,167 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:06,168 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:06,169 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:06,170 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:06,217 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/subscription/status HTTP/1.1" 200 -
+2025-08-31 04:13:06,217 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:06,217 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:06,217 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:06,217 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:06,218 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:06,219 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:06,219 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:06] "GET /api/markets HTTP/1.1" 200 -
+2025-08-31 04:13:06,367 - utils.native_deriv_client - INFO - Received 88 active symbols
+2025-08-31 04:13:07,168 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:07] "GET /api/markets HTTP/1.1" 200 -
+2025-08-31 04:13:07,395 - utils.native_deriv_client - INFO - Received 88 active symbols
+2025-08-31 04:13:08,176 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:08] "GET /api/markets HTTP/1.1" 200 -
+2025-08-31 04:13:08,458 - utils.native_deriv_client - INFO - Received 88 active symbols
+2025-08-31 04:13:09,185 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:09] "GET /api/markets HTTP/1.1" 200 -
+2025-08-31 04:13:09,894 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:09,895 - utils.native_deriv_client - WARNING - ⚠️ No subscription ID found to unsubscribe
+2025-08-31 04:13:09,895 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:09,895 - utils.native_deriv_client - INFO - 🔄 Switching to symbol: R_100
+2025-08-31 04:13:09,895 - utils.native_deriv_client - INFO - ✅ Subscribed to ticks for R_100
+2025-08-31 04:13:09,896 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:09] "POST /api/subscribe HTTP/1.1" 200 -
+2025-08-31 04:13:09,939 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:09] "GET /api/ticks/stream HTTP/1.1" 200 -
+2025-08-31 04:13:11,221 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:11] "GET /api/stats HTTP/1.1" 200 -
+2025-08-31 04:13:13,973 - utils.native_deriv_client - INFO - 🔄 Starting unsubscribe process...
+2025-08-31 04:13:13,974 - utils.native_deriv_client - INFO - 🔄 Unsubscribing from subscription ID: c584ca9e-9c0c-5e43-9878-efa78543781d
+2025-08-31 04:13:13,974 - utils.native_deriv_client - INFO - ✅ Successfully unsubscribed from c584ca9e-9c0c-5e43-9878-efa78543781d
+2025-08-31 04:13:13,974 - utils.native_deriv_client - INFO - 🔄 Clearing symbol: R_100
+2025-08-31 04:13:13,974 - utils.native_deriv_client - INFO - 🧹 Cleared all ticks and reset stream status
+2025-08-31 04:13:13,975 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:13] "POST /api/subscription/cleanup HTTP/1.1" 200 -
+2025-08-31 04:13:13,975 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:13] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:13,981 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:13] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:13:31,528 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:13:31] "GET /api/settings HTTP/1.1" 200 -
+2025-08-31 04:17:56,838 - werkzeug - INFO - 127.0.0.1 - - [31/Aug/2025 04:17:56] "POST /api/debug/test-telegram HTTP/1.1" 200 -
