@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { SettingsPage } from './components/Settings';
 import { Header } from './components/Header';
+import Trading from './components/Trading';
+import { Strategies } from './components/Strategies';
 
-type Page = 'dashboard' | 'settings';
+type Page = 'dashboard' | 'settings' | 'trading' | 'strategies';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard');
@@ -38,6 +40,10 @@ function App() {
       )}
       
       {currentPage === 'settings' && <SettingsPage />}
+      
+      {currentPage === 'trading' && <Trading />}
+      
+      {currentPage === 'strategies' && <Strategies />}
     </div>
   );
 }
