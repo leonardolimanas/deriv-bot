@@ -177,21 +177,11 @@ export const Strategies: React.FC = () => {
                       </div>
                       <div className="col-md-6">
                         <label className="form-label text-white">Descrição</label>
-                        <input
-                          type="text"
-                          value={form.description}
-                          onChange={(e) => setForm(prev => ({ ...prev, description: e.target.value }))}
-                          className="form-control bg-dark text-white border-secondary"
-                          placeholder="Descrição da estratégia"
-                        />
-                      </div>
-                      <div className="col-12">
-                        <label className="form-label text-white">Descrição Detalhada</label>
                         <textarea
                           value={form.description}
                           onChange={(e) => setForm(prev => ({ ...prev, description: e.target.value }))}
                           className="form-control bg-dark text-white border-secondary"
-                          placeholder="Descrição detalhada da estratégia"
+                          placeholder="Descrição da estratégia"
                           rows={3}
                         />
                       </div>
